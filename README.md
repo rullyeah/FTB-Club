@@ -1,4 +1,4 @@
-.checkout
+FTB-Club
 =========
 
-A Symfony project created on August 25, 2017, 3:47 pm.
+Club Management Exercise in Symfony
