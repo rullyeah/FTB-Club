@@ -1,0 +1,52 @@
+{% extends 'language/layout.html.twig' %}
+{% block sidebar %}
+    {{ parent() }}
+
+    <li>
+        <a href="{{ path('edit-language', {'slug': language.id}) }}">
+            Editar Lenguaje
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:deleteLanguage('{{ url('delete-language',  {'slug': language.id}) }}','{{ url('list-languages')}}'")>
+            Eliminar Lenguaje
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div id = "alert"  role="alert"></div>
+    <div class="panel panel-default ">
+        <div class="panel-heading">Id</div>
+        <div class="panel-body">
+            {{ language.id }}
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Name</div>
+        <div class="panel-body">
+            {{ language.name }}
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Locale</div>
+        <div class="panel-body">
+            {{ language.locale }}
+        </div>
+    </div>
+
+    <a href="{{ path('edit-language', {'slug': language.id}) }}">
+        Editar
+    </a>
+    <a href="javascript:deleteLanguage('{{ url('delete-language',  {'slug': language.id}) }}','{{ url('list-languages') }}')">
+        Eliminar
+    </a>
+{%  endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/language/ajax-delete-language.js') }}"></script>
+{% endblock %}
