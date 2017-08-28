@@ -1,0 +1,39 @@
+{% extends 'language/layout.html.twig' %}
+
+{% block sidebar %}
+    <li>
+        <a href="{{ path('create-language') }}">
+            Crear Lenguaje
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Locale</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>
+                        <a href="{{ path('single-language', {'slug': item.id}) }}">
+                            {{ item.name }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ item.locale }}
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+{%  endblock %}

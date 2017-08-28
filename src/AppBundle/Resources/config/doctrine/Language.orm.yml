@@ -1,0 +1,15 @@
+AppBundle\Entity\Language:
+  type: entity
+  id:
+    id:
+      type: string
+      length: 60
+      generator:
+        strategy: none
+  fields:
+    name:
+      type: string
+      length: 60
+    locale:
+      type: string
+      length: 10
